@@ -1,0 +1,15 @@
+{
+  "name": "eriking-syntax",
+  "theme": "syntax",
+  "version": "1.0.0",
+  "description": "theme for html,css,js thanks",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": "https://github.com/atom/eriking-syntax",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

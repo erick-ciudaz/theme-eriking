@@ -1,0 +1,317 @@
+@import "syntax-variables";
+
+atom-text-editor {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;/*color de sintaxys*/
+  text-align:justify;
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-gray;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;/*el color del indicador de escritura de texto*/
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;/*color al seleccionar texto*/
+  }
+}
+
+
+// Syntax styles
+
+.syntax--comment {
+  color: @light-gray;
+}
+
+.syntax--keyword {
+  color: @l_red;/*clor del @ como sentencias @keyframes*/
+
+  &.syntax--control {
+    color: @l_red;/*color de Condicionales if , ciclos for , switch, etc*/
+  }
+
+  &.syntax--operator {
+    color: @l_red;/*operadores de = != <> ===*/
+  }
+
+  &.syntax--other.syntax--special-method {
+    color: @blue;
+  }
+
+  &.syntax--other.syntax--unit {
+    color: @orange;
+  }
+}
+
+.syntax--storage {
+  color: @blue;/*color de las sentencias class public*/
+}
+
+.syntax--constant {
+  color: @purp_l;/*color general de constantes*/
+
+  &.syntax--character.syntax--escape {
+    color: @cyan;/*para caracteres de scape como \n \t etc*/
+  }
+
+  &.syntax--numeric {
+    color: @orange;/*color de los numeros*/
+  }
+
+  &.syntax--other.syntax--color {
+    color: @cyan;
+  }
+
+  &.syntax--other.syntax--symbol {
+    color: @green;
+  }
+}
+
+.syntax--variable {
+  color: @white;/*color de variables de php*/
+
+  &.syntax--interpolation {
+    color: darken(@red, 10%);
+  }
+
+  &.syntax--parameter.syntax--function {
+    color: @syntax-text-color;/*nose*/
+  }
+}
+
+.syntax--invalid.syntax--illegal {
+  background-color: @red;
+  color: @syntax-background-color;
+}
+
+.syntax--string {
+  color: @string;/*color de cadenas string*/
+
+
+  &.syntax--regexp {
+    color: @cyan;/*nose*/
+
+    .syntax--source.syntax--ruby.syntax--embedded {
+      color: @orange;
+    }
+  }
+
+  &.syntax--other.syntax--link {
+    color: @white;
+  }
+}
+
+.syntax--punctuation {
+
+  &.syntax--definition {
+    &.syntax--comment {
+      color: @light-gray;
+    }
+    &.syntax--variable/*color de las variables de apertura php $ */
+    {
+      color: @white;
+    }
+    &.syntax--parameters
+    {
+      color:@white;/*color de parentesis donde se colocan los parametros ()*/
+    }
+    &.syntax--array/*en arrays*/
+    {
+      color:@purple;
+    }
+    &.syntax--string/*Para las comillas*/{
+      color: @string;
+    }
+
+    &.syntax--heading,
+    &.syntax--identity {
+      color: @blue;
+
+    }
+
+    &.syntax--bold {
+      color: @light-orange;
+      font-weight: bold;
+    }
+
+    &.syntax--italic {
+      color: @purple;/*nose*/
+      font-style: italic;
+    }
+  }
+
+  &.syntax--section.syntax--embedded {
+    color: @white;/*color de llaves de inicio php*/
+  }
+
+}
+
+.syntax--support {
+  &.syntax--class {
+    color: lighten(@yellow,10%);/*color de nombre de clase en php, de objeto intanciandose*/
+  }
+
+  &.syntax--function  {
+    color: @purple;/*funciones como echo php*/
+
+
+    &.syntax--any-method {
+      color: @blue;/*nose*/
+    }
+  }
+}
+
+.syntax--entity {
+  &.syntax--name.syntax--function {
+    color: lighten(@purple,20%);/*color para nombre de funciones php*/
+
+  }
+  &.syntax--name.syntax--type {
+    color: @light-orange;/*nose*/
+    //text-decoration: underline;
+  }
+
+  &.syntax--other.syntax--inherited-class {
+    color: darken(@yellow,15%);/*para las clases que sean padres , herencia*/
+  }
+  &.syntax--name.syntax--class, &.syntax--name.syntax--type.syntax--class {
+    color: @yellow;/*color para los nombres de las clases creadas*/
+  }
+
+
+  &.syntax--name.syntax--section {
+    color: @blue;/*nose*/
+  }
+
+  &.syntax--name.syntax--tag {
+    color: @blue;/*color de las etiquetas html*/
+    //text-decoration: underline;
+  }
+
+  &.syntax--other.syntax--attribute-name {
+    color: @yellow;/*selector de clase class*/
+
+    &.syntax--id {/*Selector id para un html*/
+      color: @id_html;
+    }
+  }
+}
+
+.syntax--meta {
+
+  &.syntax--class {
+    color: @white;/*esto para el operador de = () {} []*/
+  }
+
+  &.syntax--link {
+    color: @orange;
+  }
+
+  &.syntax--require {
+    color: @blue;/*nose */
+  }
+
+  &.syntax--selector {
+    color: @white;/*color de selectores como [] ,  en css*/
+
+  }
+
+  &.syntax--separator {
+    background-color: @gray;
+    color: @syntax-text-color;/*nose*/
+  }
+}
+
+.syntax--none {
+  color: @syntax-text-color;
+}
+
+.syntax--markup {
+  &.syntax--bold {
+    color: @orange;
+    font-weight: bold;
+  }
+
+  &.syntax--changed {
+    color: @purple;/*nose*/
+  }
+
+  &.syntax--deleted {
+    color: @red;
+  }
+
+  &.syntax--italic {
+    color: @purple;
+    font-style: italic;
+  }
+
+  &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+    color: @blue;
+  }
+
+  &.syntax--inserted {
+    color: @green;
+  }
+
+  &.syntax--list {
+    color: @red;/*nose*/
+  }
+
+  &.syntax--quote {
+    color: @orange;
+  }
+
+  &.syntax--raw.syntax--inline {
+    color: @green;
+  }
+}
+
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+  &.syntax--heading {
+    color: @green;
+  }
+}
+
+
+// Mini editor
+
+atom-text-editor[mini] .scroll-view {
+  padding-left: 1rem;
+}
